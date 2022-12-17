@@ -99,45 +99,53 @@ export function Symbol() {
             {stock 
                 ? (
                     <>
-                    <div className="flex justify-between items-center px-24 mt-20 pb-24">
-                        <div>
-                            <div className="pb-24">
+                    <div className="lg:flex lg:justify-between lg:items-center px-6 lg:px-24 mt-20 pb-12 lg:pb-24">
+                        <div className="text-center lg:text-start lg:w-full">
+                            <div className="pb-12 md:pb-20 lg:pb-24">
                                 <h1 className="text-teal-400 text-6xl font-semibold pb-6">
                                     {stock.symbol}
                                 </h1>
-                                <h1 className="text-2xl font-semibold ml-6 text-white">
+                                <h1 className="text-2xl font-semibold lg:ml-6 text-white">
                                     {stock.name}
                                 </h1>
                             </div>
 
-                            <div className="ml-6 space-y-8">
-                                <div className="flex items-center space-x-12">
-                                    <StockInfo icon={rating} text={stock.score} />
-                                    <StockInfo icon={arrow} text={stock.freq}  />
+                            <div className="block lg:hidden md:flex md:justify-center pb-16 md:pb-24">
+                                <LineChart chartData={lineChartData} color="white" />
+                            </div>
+
+                            <div className="lg:ml-6 space-y-8 md:space-y-10">
+                                <div className="flex items-center justify-center lg:justify-start space-x-20 lg:space-x-12">
+                                    <StockInfo info="Score" icon={rating} text={stock.score} />
+                                    <StockInfo info="Reference count" icon={arrow} text={stock.freq}  />
                                 </div>
-                                <div className="flex items-center space-x-12">
-                                    <StockInfo icon={dollar} text={tradeInfo.price}  />
-                                    <StockInfo icon={gross} text={tradeInfo.volume}  />
+                                <div className="flex items-center justify-center lg:justify-start space-x-20 lg:space-x-12">
+                                    <StockInfo info="Price" icon={dollar} text={tradeInfo.price + "$"}  />
+                                    <StockInfo info="Trade volume" icon={gross} text={tradeInfo.volume}  />
                                 </div>
                             </div>
                         </div>
 
-                        <LineChart chartData={lineChartData} color="white" />
+                        <div className="w-full hidden lg:block">
+                            <LineChart chartData={lineChartData} color="white" />
+                        </div>
                     </div>
 
-                    <div className="px-24 py-12">
-                        <h1 className="text-4xl font-semibold pb-16 text-teal-400">
+                    <div className="px-6 md:px-16 lg:px-24 py-12">
+                        <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold pb-16 text-teal-400">
                             Stats
                         </h1>
 
-                        <BarChart chartData={barChartData} color="white" />
+                        <div>
+                            <BarChart chartData={barChartData} color="white" />
+                        </div>
                     </div>
 
-                    <div className="px-24 py-12">
-                        <h1 className="text-4xl font-semibold pb-16 text-teal-400">
+                    <div className="px-6 md:px-16 lg:px-24 py-12">
+                        <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold pb-16 text-teal-400">
                             The voice of the people
                         </h1>
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="grid lg:grid-cols-2 gap-6 md:justify-center">
                             {stock.sentiments.map(item => {
                                 return(
                                     <Comment key={item.created_date} sentiment={item} />

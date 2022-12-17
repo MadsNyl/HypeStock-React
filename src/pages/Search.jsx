@@ -71,14 +71,14 @@ export function Search() {
 
     return (
         <Animated>
-            <div className="px-24 py-12">
+            <div className="px-4 lg:px-24 py-12">
                 <div className="flex justify-center items-center pb-8">
                     <form
                         onSubmit={loadData}
                         className={"bg-white px-5 py-3 rounded-lg flex items-center max-w-xl w-full mx-auto text-gray-900 border-2 " + (error.invalidInput ? "border-red-800" : "border-white")}
                     >
                         <input
-                            className={"focus:outline-none w-full text-lg font-semibold " + (error.invalidInput ? "placeholder:text-red-700" : "")}
+                            className={"focus:outline-none w-full text-lg font-semibold placeholder:text-sm lg:placeholder:text-md " + (error.invalidInput ? "placeholder:text-red-700" : "")}
                             placeholder={error.invalidInput ? "Search must be atleast 2 characters..." : "Search for a company..."} 
                             onChange={(e) => {
                                 setSearch(e.target.value)

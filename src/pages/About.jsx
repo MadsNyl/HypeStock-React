@@ -45,7 +45,7 @@ export function About() {
                 ? <>
                     <div className="flex justify-center mt-20 pb-64">
                         <div className="max-w-5xl text-center">
-                            <h1 className="font-semibold text-6xl leading-tight">
+                            <h1 className="font-semibold text-2xl md:text-4xl lg:text-6xl leading-tight">
                                 <Typewriter 
                                     onInit={(typewriter) => {
                                         typewriter
@@ -59,56 +59,56 @@ export function About() {
                     </div>
         
                     <div className="pb-16">
-                        <div className="bg-gray-100 px-16 pt-16 pb-32">
-                            <div className="max-w-5xl mx-auto  -mt-44 bg-white shadow-md px-8 py-12 rounded-xl">
-                                <div className="flex justify-center space-x-24 pb-16 border-b border-b-gray-300">
+                        <div className="bg-gray-100 px-5 md:px-16 lg:px-16 pt-16 pb-32">
+                            <div className="max-w-5xl mx-auto -mt-44 bg-white shadow-md px-8 py-12 rounded-xl">
+                                <div className="flex justify-center space-x-12 lg:space-x-24 pb-16 border-b border-b-gray-300">
                                     <img 
-                                        className="w-24 h-24"
+                                        className="w-12 md:w-20 lg:w-24 h-12 md:h-20 lg:h-24"
                                         src={redditLogo} 
                                         alt="Reddit logo" 
                                     />
                                     <img 
-                                        className="w-24 h-24"
+                                        className="w-12 md:w-20 lg:w-24 h-12 md:h-20 lg:h-24"
                                         src={stockIcon} 
                                         alt="Stock icon" 
                                     />
                                     <img 
-                                        className="w-24 h-24"
+                                        className="w-12 md:w-20 lg:w-24 h-12 md:h-20 lg:h-24"
                                         src={twitterLogo} 
                                         alt="Twitter logo" 
                                     />
                                 </div>
-                                <div className="px-20 mt-6">
-                                    <h1 className="text-gray-900 text-4xl font-semibold pb-6">
+                                <div className="px-2 lg:px-20 mt-6">
+                                    <h1 className="text-gray-900 text-2xl md:text-3xl lg:text-4xl font-semibold pb-6">
                                         In short
                                     </h1>
-                                    <h1 className="text-gray-400 text-xl font-medium pb-6">
+                                    <h1 className="text-gray-400 text-md lg:text-xl font-medium pb-6">
                                         Posts and comments are continuously collected from <span className="text-orange-600">Reddit</span> and <span className="text-blue-400">Twitter</span>, which is then filtered and analyzed. In this way, you get presented to live comments and opinions from the people of social media. 
                                     </h1>
-                                    <h1 className="text-gray-400 text-xl font-medium">
+                                    <h1 className="text-gray-400 text-md lg:text-xl font-medium">
                                         Explore the currently <span className="text-deepBlue-900">{count ? count : 0}</span> available stock tickers, and get insight in day-to-day prices, trade activity and latest comments and predictions from social media. 
                                     </h1>
                                 </div>
                             </div>
         
-                            <div className="flex justify-center items-center space-x-12 pt-16 pb-20 border-b border-b-gray-300">
+                            <div className="flex justify-center items-center space-x-6 md:space-x-10 lg:pace-x-12 pt-16 pb-20 border-b border-b-gray-300">
                                 <NavLink
                                     to={"/search"} 
-                                    className="w-44 py-3 cursor-pointer rounded-2xl bg-blue-700 text-white transition duration-150 ease-in-out hover:opacity-75 text-center font-medium text-lg">
+                                    className="w-32 md:w-36 lg:w-44 py-3 cursor-pointer rounded-2xl bg-blue-700 text-white transition duration-150 ease-in-out hover:opacity-75 text-center font-medium text-md lg:text-lg">
                                     <p>
                                         Explore
                                     </p>
                                 </NavLink>
                                 <NavLink
                                     to={"/"} 
-                                    className="w-44 py-3 cursor-pointer rounded-2xl bg-deepBlue-900 text-white transition duration-150 ease-in-out hover:opacity-75 text-center font-medium text-lg">
+                                    className="w-32 md:w-36 lg:w-44 py-3 cursor-pointer rounded-2xl bg-deepBlue-900 text-white transition duration-150 ease-in-out hover:opacity-75 text-center font-medium text-md lg:text-lg">
                                     <p>
                                         Trending
                                     </p>
                                 </NavLink>
                             </div>
         
-                            <div className="flex justify-between items-center text-deepBlue-900 py-16">
+                            <div className="lg:flex lg:justify-between lg:items-center text-deepBlue-900 py-16">
                                 <div className="max-w-xl">
                                 <h1 className="text-4xl font-semibold pb-8">
                                     Scrape data with Python
@@ -118,15 +118,15 @@ export function About() {
                                     </p>
                                 </div>
                                 <img
-                                    className="w-44 h-44 mr-24" 
+                                    className="hidden lg:block w-44 h-44 mr-24" 
                                     src={pythonIcon} 
                                     alt="Python Icon" 
                                 />
                             </div>
         
-                            <div className="flex justify-between items-center text-deepBlue-900 py-16">
+                            <div className="lg:flex lg:justify-between lg:items-center text-deepBlue-900 py-16">
                                 <img
-                                    className="w-44 h-44 ml-24" 
+                                    className="hidden lg:block w-44 h-44 ml-24" 
                                     src={nodeIcon} 
                                     alt="Python Icon" 
                                 />
@@ -140,7 +140,7 @@ export function About() {
                                 </div>
                             </div>
         
-                            <div className="flex justify-between items-center text-deepBlue-900 py-16">
+                            <div className="lg:flex lg:justify-between lg:items-center text-deepBlue-900 py-16">
                                 <div className="max-w-xl">
                                 <h1 className="text-4xl font-semibold pb-8">
                                     Visualization with React and Flutter
@@ -150,7 +150,7 @@ export function About() {
                                     </p>
                                 </div>
                                 <img
-                                    className="w-44 h-44 mr-24" 
+                                    className="hidden lg:block w-44 h-44 mr-24" 
                                     src={react} 
                                     alt="Python Icon" 
                                 />

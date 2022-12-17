@@ -8,11 +8,11 @@ export function Footer() {
                 <div className="text-center">
                     <NavLink 
                         to={"/"}
-                        className="text-4xl font-bold"
+                        className="text-2xl md:text-4xl font-bold"
                     >
                         <span className="text-teal-400">Hype</span>Stock
                     </NavLink>
-                    <h1 className="mt-4 text-md text-gray-300">
+                    <h1 className="mt-4 text-sm md:text-md text-gray-300">
                         Created by Mads Nylund
                     </h1>
                 </div>

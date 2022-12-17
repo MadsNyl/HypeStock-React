@@ -175,23 +175,30 @@ export function Home() {
         return trades;
     }
 
+    const toggles = [
+        { status: apiStatus.trending, type: "trending", name: "Trending" },
+        { status: apiStatus.score, type: "score", name: "Score" },
+        { status: apiStatus.freq, type: "freq", name: "Frequency" },
+        { status: apiStatus.random, type: "random", name: "Random" },
+    ];
+
 
     return (
         <Animated>
             <div className="flex justify-center mt-16 pb-24">
-                <div className="max-w-5xl text-center">
-                    <h1 className="font-semibold text-6xl leading-tight pb-8">
+                <div className="max-w-xs md:max-w-xl lg:max-w-5xl text-center">
+                    <h1 className="font-semibold text-3xl md:text-4xl lg:text-6xl leading-tight pb-8">
                         Easily gain insight into the hottest stocks from social media
                     </h1>
                     <div className="flex justify-center pb-12">
-                        <p className="max-w-xl text-center text-gray-400">
+                        <p className="text-sm md:text-md lg:text-lg md:max-w-lg lg:max-w-xl text-center text-gray-400">
                             Get all the predictions of the community of Reddit and Twitter, formated into organized and well-informative data 
                         </p>
                     </div>
-                    <div className="flex justify-center items-center space-x-12 font-medium">
+                    <div className="flex justify-center items-center space-x-6 lg:space-x-12 font-medium">
                         <NavLink
                             to={"/about"} 
-                            className="w-36 py-3 cursor-pointer rounded-2xl bg-white text-black transition duration-150 ease-in-out hover:opacity-75"
+                            className="w-28 md:w-32 lg:w-36 py-3 text-sm lg:text-lg cursor-pointer rounded-2xl bg-white text-black transition duration-150 ease-in-out hover:opacity-75"
                         >
                             <p>
                                 How it works
@@ -199,7 +206,7 @@ export function Home() {
                         </NavLink>
                         <NavLink
                             to={"/search"} 
-                            className="w-36 py-3 cursor-pointer rounded-2xl bg-gradient-to-br from-teal-400 via-teal-600 to-emerald-600 text-white transition duration-150 ease-in-out hover:opacity-75">
+                            className="w-28 lg:w-36 py-3 text-sm lg:text-lg cursor-pointer rounded-2xl bg-gradient-to-br from-teal-400 via-teal-600 to-emerald-600 text-white transition duration-150 ease-in-out hover:opacity-75">
                             <p>
                                 Explore
                             </p>
@@ -208,42 +215,29 @@ export function Home() {
                 </div>
             </div>
             <div className="pb-16">
-                <div className=" bg-gray-100 rounded-3xl px-16 pt-16 pb-32">
-                    <div className="flex justify-start pb-24">
+                <div className=" bg-gray-100 rounded-3xl px-6 md:px-12 lg:px-16 pt-16 pb-32">
+                    <div className="flex justify-center md:justify-start lg:justify-start pb-16 md:pb-24 lg:pb-24">
                         <div className="flex items-center text-deepBlue-900">
                             <ul className="flex items-center font-semibold shadow-md rounded-md">
-                                <li 
-                                    onClick={() => { if (!apiStatus.trending) getStock("trending"); }}
-                                    className={(apiStatus.trending ? "text-white bg-gradient-to-br border-deepBlue-900 bg-deepBlue-900 " :"border-gray-200 bg-white ") + "border w-28 py-3 rounded-l-md block text-center cursor-pointer transition duration-150 ease-in-out hover:bg-gradient-to-br hover:bg-deepBlue-900 hover:border-deepBlue-900 hover:text-white"}
-                                >
-                                    Trending
-                                </li>
-                                <li 
-                                    onClick={() => { if (!apiStatus.score) getStock("score"); }}
-                                    className={(apiStatus.score ? "text-white bg-gradient-to-br border-deepBlue-900 bg-deepBlue-900 " :"border-gray-200 bg-white ") + "border w-28 py-3 block text-center cursor-pointer transition duration-150 ease-in-out hover:bg-gradient-to-br hover:bg-deepBlue-900 hover:border-deepBlue-900 hover:text-white"}
-                                >
-                                    Score
-                                </li>
-                                <li 
-                                    onClick={() => { if(!apiStatus.random) getStock("random"); }}
-                                    className={(apiStatus.random ? "text-white bg-gradient-to-br border-deepBlue-900 bg-deepBlue-900 " :"border-gray-200 bg-white ") + "border w-28 py-3 block text-center cursor-pointer transition duration-150 ease-in-out hover:bg-gradient-to-br hover:bg-deepBlue-900 hover:border-deepBlue-900 hover:text-white"}
-                                >
-                                    Random
-                                </li>
-                                <li 
-                                    onClick={() => { if(!apiStatus.freq) getStock("freq"); }}
-                                    className={(apiStatus.freq ? "text-white bg-gradient-to-br border-deepBlue-900 bg-deepBlue-900 " :"border-gray-200 bg-white ") + "border w-28 py-3 rounded-r-md block text-center cursor-pointer transition duration-150 ease-in-out hover:bg-gradient-to-br hover:bg-deepBlue-900 hover:border-deepBlue-900 hover:text-white"}
-                                >
-                                    Frequency
-                                </li>
+                                {
+                                    toggles.map((item, index) => {
+                                        return <li
+                                            key={item.name}
+                                            onClick={() => { if (!item.status) getStock(item.type); }}
+                                            className={(item.status ? "text-white bg-gradient-to-br border-deepBlue-900 bg-deepBlue-900 " :"border-gray-200 bg-white ") + "border w-20 md:w-24 lg:w-28 py-3 block text-sm md:text-md lg:text-md text-center cursor-pointer transition duration-150 ease-in-out hover:bg-gradient-to-br hover:bg-deepBlue-900 hover:border-deepBlue-900 hover:text-white " + (index === 0 ? "rounded-l-md" : "") + (index === 3 ? " rounded-r-md": "")}
+                                        >
+                                            { item.name }
+                                        </li>
+                                    })
+                                }
                             </ul>
                         </div>
                     </div>
                     <>
-                    <div className="h-52">
+                    <div className="h-80 lg:h-52 md:h-52">
                         { !isLoading ?
-                            (<div className="flex justify-between items-center">
-                                <div className="max-w-md w-full">
+                            (<div className="lg:flex md:flex justify-between items-center lg:space-x-6">
+                                <div className="w-full">
                                 {
                                     apiStatus.random
                                         ? 
@@ -265,7 +259,9 @@ export function Home() {
                                 <StockCard stock={stock} />
                                 </div>
                                 
-                                <LineChart chartData={chartData} />
+                                <div className="lg:w-full">
+                                    <LineChart chartData={chartData} />
+                                </div>
 
                             </div>) : (
                                 null
